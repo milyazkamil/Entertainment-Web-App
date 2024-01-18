@@ -313,7 +313,7 @@ body {
   max-width: 300px;
   min-width: 280px;
   padding-bottom: 5rem;
-  height: auto;
+  height: 480px;
   position: relative;
   border-radius: 1rem;
   background-color: var(--bar-color);
@@ -455,6 +455,18 @@ body {
   position: relative;
   border-radius: 1rem;
   background-color: var(--bar-color);
+}
+#main > #main-content > #saved-movies-container > #saved-movies > .saved-movie-card > .remove-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 0.4rem;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  color: var(--white);
+  background-color: var(--pink);
+  cursor: pointer;
 }
 #main > #main-content > #saved-movies-container > #saved-movies > .saved-movie-card > .saved-movie-image {
   width: 100%;

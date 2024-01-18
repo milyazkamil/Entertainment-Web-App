@@ -1,1 +1,6 @@
-"🚧 Here is a project I'm working on! It's not finished yet, but I'm actively working on it. Stay tuned for updates! 🛠️"
+# Entertainment Web App
+
+## Entertainment web application that contains information such as posters, titles, actors, descriptions, etc. for more than 280,000 movies using OMDb Api.
+
+### [Preview website](https://milyazkamil.github.io/Entertainment-Web-App/) 
+![](./src/assets/images/readme-image.png)

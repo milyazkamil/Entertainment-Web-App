@@ -1,0 +1,867 @@
+@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Mooli', sans-serif;
+}
+
+:root {
+  --bg-color: #10141F;
+  --bar-color: #161D2F;
+  --bar-color-light: #161d2fdd;
+  --pink: #FF4549;
+  --btn-color: #586B92;
+  --white: #FCFFFF;
+  --gray: #898C95;
+  --bg-save-btn: #5D677B;
+}
+
+html::-webkit-scrollbar {
+  width: 5px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--bar-color);
+  border-radius: 10px;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+#main {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: var(--bg-color);
+
+  & > #side-bar {
+    position: fixed;
+    height: 92%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 5rem;
+    border-radius: 1rem;
+    background-color: var(--bar-color);
+    padding: 2rem 1rem;
+
+    & > #movie-icon {
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: 2rem;
+      color: var(--pink);
+      cursor: pointer;
+    }
+
+    & > #icons {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      height: 100%;
+
+      & > svg {
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-bottom: 1.5rem;
+        color: var(--btn-color);
+        cursor: pointer;
+      }
+    }
+
+    & > a {
+
+      & > #profile-image {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+  }
+
+  & > #main-content {
+    margin-left: 5rem;
+    width: 100%;
+    overflow: hidden;
+    min-height: 90vh;
+    padding: 0 2rem;
+
+    & > #searched-main-content {
+      color: var(--white);
+
+      & > #searched-movie-title {
+        font-size: 2.3rem;
+        margin-bottom: 2rem;
+      }
+
+      & > .searched-movie-card {
+        position: relative;
+        max-width: 290px;
+        min-width: 290px;
+        width: auto;
+        padding-bottom: 5rem;
+        height: 480px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 1rem;
+        background-color: var(--bar-color);
+
+        & > .searched-movie-image {
+          width: 100%;
+          height: 400px;
+          border-radius: 1rem 1rem 0 0;
+        }
+
+        & > .remove-icon {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          padding: 0.4rem;
+          border-radius: 50%;
+          width: 2rem;
+          height: 2rem;
+          color: var(--white);
+          background-color: var(--pink);
+          cursor: pointer;
+        }
+
+        & > .slider-info {
+            width: 100%;
+            height: 450px;
+            padding: 1rem;
+            left: 0;
+            position: absolute;
+            transition: all 0.3s ease-in;
+            background-color: var(--bar-color-light);
+
+            & > .slider-card-container {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              & > .more-btn {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                padding: 0.1rem 0.4rem;
+                border-radius: 0.5rem;
+                transition: all 0.3s ease-in;
+
+                &:hover {
+                  color: var(--white);
+                  background-color: var(--pink);
+                }
+
+                & > svg {
+                  width: 1.5rem;
+                  height: 1.5rem;
+                }
+              }
+
+              & > .slider-movie-info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 5px;
+                margin-bottom: 1rem;
+                
+                & > span {
+                  display: flex;
+                  gap: 5px;
+                  align-items: center;
+                }
+              }
+            }
+
+            & > div {
+              margin-bottom: 1rem;
+
+              & > h4 {
+                display: inline;
+              }
+            }
+        }
+
+        & > .not-found {
+          width: 100%;
+          height: 80%;
+          object-fit: cover;
+        }
+
+        & > .not-found-text {
+          padding: 2rem;
+
+          & > span {
+            color: var(--pink);
+          }
+        }
+      }
+    }
+    
+    & > #search-form {
+      position: relative;
+      margin-bottom: 2rem;
+      width: 50%;
+      display: flex;
+      gap: 1rem;
+
+      & > #search-input {
+        width: 100%;
+        height: 40px;
+        border-radius: 1rem;
+        border: transparent;
+        padding-left: 3rem;
+        font-size: 20px;
+      }
+
+      & > #search-icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        width: 1.5rem;
+        height: 1.5rem;
+        transform: translate(0, -50%);
+      }
+
+      & > #search-btn {
+        min-width: 7rem;
+        font-size: 18px;
+        padding: 0.5rem 1.5rem;
+        border-radius: 1rem;
+        border: transparent;
+        cursor: pointer;
+        background-color: var(--white);
+        transition: all 0.3s ease-in;
+
+        &:hover {
+          border-radius: 1rem;
+          color: var(--white);
+          background-color: var(--pink);
+        }
+      }
+    }
+
+    & > #trending-movies {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      color: var(--white);
+
+      & > #trending-movies-title {
+        font-size: 2.3rem;
+        margin-bottom: 1rem;
+      }
+
+      & > #slider-container {
+
+        & .slider-card {
+          width: 90%;
+          margin: 0 auto;
+          max-width: 300px;
+          height: 480px;
+          position: relative;
+          border-radius: 1rem;
+          overflow: hidden;
+          
+          //dikkat 
+          & > .slider-info {
+            width: 100%;
+            height: 450px;
+            padding: 1rem;
+            left: 0;
+            position: absolute;
+            transition: all 0.3s ease-in;
+            background-color: var(--bar-color-light);
+
+            & > .slider-card-container {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              & > .more-btn {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                padding: 0.1rem 0.4rem;
+                border-radius: 0.5rem;
+                transition: all 0.3s ease-in;
+
+                &:hover {
+                  color: var(--white);
+                  background-color: var(--pink);
+                }
+
+                & > svg {
+                  width: 1.5rem;
+                  height: 1.5rem;
+                }
+              }
+
+              & > .slider-movie-info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 5px;
+                margin-bottom: 1rem;
+                
+                & > span {
+                  display: flex;
+                  gap: 5px;
+                  align-items: center;
+                }
+              }
+            }
+
+            & > div {
+              margin-bottom: 1rem;
+
+              & > h4 {
+                display: inline;
+              }
+            }
+          }
+
+          & > img {
+            width: 100%;
+            border-radius: 1rem 1rem 0 0;
+            object-fit: cover;
+            height: 380px;
+            position: absolute;
+          }
+        }
+      }
+    }
+
+    & > #recommended {
+      padding: 1rem;
+      width: 100%;
+      color: var(--white);
+
+      & > #recommended-title {
+        font-size: 2.3rem;
+        margin-bottom: 1rem;
+      }
+
+      & > .recommended-movie-cards {
+        display: grid;
+        place-items: center;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2rem;
+        padding: 0 1rem;
+
+        & > .recommended-movie-card {
+          width: 90%;
+          max-width: 300px;
+          min-width: 280px;
+          padding-bottom: 5rem;
+          height: auto;
+          position: relative;
+          border-radius: 1rem;
+          background-color: var(--bar-color);
+
+          &:hover {
+
+            & > .overlay {
+              opacity: 1 !important;
+            }
+
+            & > .play-btn {
+              opacity: 1 !important;
+            }
+          }
+
+          & > .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border-radius: 1rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            transition: all 0.2s ease-in;
+            cursor: pointer;
+            opacity: 0;
+          }
+
+          & > .play-btn {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 500;
+            width: 3rem;
+            height: 3rem;
+            cursor: pointer;
+            transition: all 0.2s ease-in;
+            opacity: 0;
+
+            &:hover {
+              color: var(--pink);
+            }
+          }
+
+          & > img {
+            border-radius: 1rem 1rem 0 0;
+            width: 100%;
+            height: 400px;
+          }
+
+          & > .save {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            padding: 0.4rem;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            color: var(--white);
+            background-color: rgba(105, 105, 105, 0.8);
+            cursor: pointer;
+          }
+
+          & > .recommended-movie-card-info {
+            position: absolute;
+            bottom: 15px;
+            left: 20px;
+            color: var(--white);
+
+            & > .movie-title {
+              margin-bottom: 0.7rem;
+            }
+
+            & > .movie-info {
+              display: flex;
+              align-items: center;
+              gap: 5px;
+            }
+          }
+        }
+      }
+    }
+
+    & > #saved-movies-container {
+      position: relative;
+      color: var(--white);
+      padding: 0 1rem;
+      height: 100%;
+
+      & > #saved-movies-title {
+        margin-bottom: 2rem;
+        font-size: 2.3rem;
+      }
+
+      & > #remove-movie-alert-bg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 19;
+
+        & > #remove-movie-alert {
+          width: 700px;
+          height: 400px;
+          text-align: center;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          padding: 5rem 0;
+          border-radius: 1rem;
+          z-index: 20;
+          color: var(--white);
+          background-color: #161d2fb2;
+          border: 1px solid var(--white);
+          box-shadow: 0 0 10px var(--white);
+
+          & > #remove-movie-title {
+            margin-bottom: 4rem;
+          }
+
+          & > button {
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+            border-radius: 0.5rem;
+            border: transparent;
+            cursor: pointer;
+          }
+
+          & > #remove-movie-btn {
+            background: linear-gradient(#FF7575, #FF0202);
+
+            &:hover {
+              background: linear-gradient(#ff0000, #ff0000);
+            }
+          }
+
+          & > #cancel-movie-btn {
+            background: linear-gradient(#7ef4c5, #72ff68);
+
+            &:hover {
+              background: linear-gradient(#11ff00, #11ff00);
+            }
+          }
+        }
+      }
+
+      & > #saved-movies {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+
+        & > .saved-movie-card {
+          position: relative;
+          max-width: 290px;
+          min-width: 290px;
+          width: auto;
+          padding-bottom: 5rem;
+          height: auto;
+          position: relative;
+          border-radius: 1rem;
+          background-color: var(--bar-color);
+          
+          & > .saved-movie-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 1rem 1rem 0 0;
+          }
+
+          & > .saved-movie-card-info {
+            bottom: 15px;
+            left: 20px;
+            position: absolute;
+
+            & > .saved-movie-card-title {
+              margin-bottom: 0.7rem;
+            }
+
+            & > .saved-movie-info {
+              display: flex;
+              align-items: center;
+              gap: 5px;
+
+              & > span {
+                display: flex;
+                gap: 5px;
+                align-items: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1780px) {
+  #main {
+
+    & > #main-content {
+
+      & > #trending-movies {
+
+        & > .trending-movie-cards {
+
+          & > .trending-movie-card {
+            min-width: 500px;
+            height: 280px;
+          }
+        }
+      }
+
+      & > #recommended {
+
+        & > .recommended-movie-cards {
+          grid-template-columns: repeat(4, 1fr);
+
+          & > .recommended-movie-card {
+            padding-bottom: 4rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  #main {
+
+    & > #main-content {
+
+      & > #trending-movies {
+
+        & > .trending-movie-cards {
+          overflow: hidden;
+          gap: 2rem;
+
+          & > .trending-movie-card {
+            min-width: 450px;
+            height: 230px;
+          }
+        }
+      }
+
+      & > #recommended {
+
+        & > .recommended-movie-cards {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  #main {
+    flex-direction: column;
+    align-items: start;
+
+    & > #side-bar {
+      position: relative;
+      flex-direction: row;
+      min-height: 5rem;
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+
+      & > #movie-icon {
+        margin-bottom: 0;
+      }
+
+      & > #icons {
+        flex-direction: row;
+
+        & > svg {
+          margin: 0 1rem; 
+        }
+      }
+
+      & > #profile-image {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    & > #main-content {
+      padding: 1rem;
+      margin-left: 0;
+      padding-top: 0.7rem;
+
+      & > #search-form {
+        width: 100%;
+      }
+
+      & > #trending-movies {
+
+        & > #trending-title {
+          font-size: 2.3rem;
+          margin-bottom: 1rem;
+        }
+
+        & > .trending-movie-cards {
+          overflow: hidden;
+          gap: 2rem;
+
+          & > .trending-movie-card {
+            min-width: 350px;
+            height: 200px;
+            border-radius: 1rem;
+
+            & > .trending-movie-card-info {
+              position: absolute;
+              bottom: 20px;
+              left: 20px;
+              color: var(--white);
+            }
+          }
+        }
+      }
+
+      & > #recommended {
+
+        & > .recommended-movie-cards {
+          grid-template-columns: repeat(2, 1fr);
+
+          & > .recommended-movie-card {
+
+            & > .recommended-movie-card-info {
+              bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #main {
+    padding: 1rem;
+
+    & > #side-bar {
+
+      & > #movie-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      & > #icons {
+
+        & > svg {
+          width: 1.4rem;
+          height: 1.4rem;
+          margin: 0 1rem;
+        }
+      }
+    }
+
+    & > #main-content {
+      min-height: 100vh;
+
+      & > #saved-movies-container {
+
+        & > #saved-movies-title {
+          font-size: 2rem;
+          text-align: center;
+        }
+      }
+
+      & > #trending-movies {
+
+        & > #trending-movies-title {
+          text-align: center;
+          font-size: 2rem;
+        }
+
+        & > .trending-movie-cards {
+          overflow: hidden;
+          gap: 2rem;
+
+          & > .trending-movie-card {
+            min-width: 550px;
+            position: relative;
+          }
+        }
+      }
+
+      & > #recommended {
+
+        & > #recommended-title {
+          text-align: center;
+        }
+
+        & > .recommended-movie-cards {
+          grid-template-columns: repeat(1, 1fr);
+
+          & > .recommended-movie-card {
+
+            & > .recommended-movie-card-info {
+              bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #main {
+    padding: 1rem 0.5rem;
+
+    & > #main-content {
+
+      & > #search-form {
+
+        & > #search-btn {
+          min-width: 5rem;
+          font-size: 16px;
+          padding: 0.5rem 1rem;
+        }
+      }
+
+      & > #trending-movies {
+
+        & > #trending-title {
+          font-size: 2rem;
+        }
+
+        & > .trending-movie-cards {
+
+          & > .trending-movie-card {
+            min-width: 270px;
+            height: 200px;
+          }
+        }
+      }
+
+      & > #recommended {
+
+        & > #recommended-title {
+          font-size: 2rem;
+        }
+
+        & > .recommended-movie-cards {
+          padding: 0;
+
+          & > .recommended-movie-card {
+            min-width: 280px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 380px) {
+  #main {
+
+    & > #main-content {
+      padding: 0 0.5rem;
+
+      & > #search-form {
+
+        & > #search-btn {
+          min-width: 5rem;
+          font-size: 16px;
+          padding: 0.5rem 1rem;
+        }
+      }
+
+      & > #trending-movies {
+
+        & > #trending-title {
+          font-size: 2rem;
+        }
+
+        & > .trending-movie-cards {
+
+          & > .trending-movie-card {
+          }
+        }
+      }
+
+      & > #recommended {
+
+        & > #recommended-title {
+          font-size: 2rem;
+        }
+
+        & > .recommended-movie-cards {
+          padding: 0;
+
+          & > .recommended-movie-card {
+            min-width: 250px;
+          }
+        }
+      }
+    }
+  }
+}

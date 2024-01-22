@@ -4,7 +4,7 @@ import MainContent from './MainContent';
 import { useGlobalContext } from './Context';
 
 const API_KEY = import.meta.env.VITE_REACT_APP_API_KEY;
-const url = 'http://www.omdbapi.com/?t=';
+const url = 'https://www.omdbapi.com/?t=';
 
 function App() {
   const { setMovie, searchedMovie } = useGlobalContext();

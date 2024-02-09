@@ -12,6 +12,7 @@ const Search = () => {
         type="text"
         name="text"
         placeholder="Search..."
+        autoComplete='off'
       />
       <BiSearch id="search-icon" />
       <button type="submit" id="search-btn">
